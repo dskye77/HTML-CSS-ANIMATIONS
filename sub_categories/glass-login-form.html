@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Login Form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(/images/image-blue-stars.jpg) no-repeat center;
+        background-size: cover;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      .container {
+        width: 90%;
+        max-width: 400px;
+        height: 500px;
+        padding: 0px 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 0.5px solid white;
+        border-radius: 10px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      form h2 {
+        font-size: 2.2rem;
+        color: white;
+        margin: 40px 0px 30px 0px;
+      }
+      form .input-field {
+        position: relative;
+        width: 100%;
+        color: white;
+        border-bottom: 2px solid white;
+        margin-bottom: 40px;
+      }
+      form .input-field input {
+        width: 100%;
+        height: 40px;
+        font-size: 1.2rem;
+        color: white;
+        background: transparent;
+        border: none;
+        outline: none;
+      }
+      form .input-field label {
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        transform: translateY(-50%);
+        transition: all 0.2s ease-out;
+        pointer-events: none;
+      }
+      .input-field input:focus + label,
+      .input-field input.with_cont + label {
+        transform: translateY(-150%);
+        font-size: 0.8rem;
+      }
+
+      .password-options {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .remember {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        color: #0a162c;
+      }
+      #remember {
+        accent-color: #0a162c;
+      }
+      .forgot {
+        width: 100%;
+        color: #0a162c;
+        cursor: pointer;
+      }
+      .forgot:hover {
+        text-decoration: underline;
+      }
+      button.login {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.2rem;
+        margin-top: 30px;
+        font-weight: bold;
+        border: 2px solid #ffffff;
+        color: #0a162c;
+        border-radius: 3px;
+        background-color: white;
+        transition: all 0.4s ease-in-out;
+        cursor: pointer;
+      }
+      button.login:hover {
+        background: transparent;
+        color: #ffffff;
+        border: 2px solid white;
+      }
+      div.register{
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+      }
+      div.register p{
+        color: #0a162c;
+      }
+      div.register a{
+        color: #0a162c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="#">
+        <h2>Login</h2>
+        <div class="input-field">
+          <input
+            type="email"
+            id="email"
+            oninput="toggleContClass(id)"
+            onchange="toggleContClass(id)"
+            required
+          />
+          <label>Enter Your email</label>
+        </div>
+        <div class="input-field">
+          <input
+            type="password"
+            id="password"
+            oninput="toggleContClass(id)"
+            onchange="toggleContClass(id)"
+            required
+          />
+          <label>Enter Your password</label>
+        </div>
+        <div class="password-options">
+          <label class="remember" for="remember">
+            <input type="checkbox" id="remember" />
+            <p>Remember me</p>
+          </label>
+          <div class="forgot">
+            <p>forgot password</p>
+          </div>
+        </div>
+        <button type="submit" class="login">Log in</button>
+        <div class="register">
+            <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+      </form>
+    </div>
+    <script>
+      function toggleContClass(id) {
+        var element = document.getElementById(id);
+        if (element.value == "") {
+          element.classList.remove("with_cont");
+        } else {
+          element.classList.add("with_cont");
+        }
+      }
+    </script>
+  </body>
+</html>

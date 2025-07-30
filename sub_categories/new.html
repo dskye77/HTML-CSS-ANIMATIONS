@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            display: block;
+        }
+        p.hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="p">hello</p>
+
+    <button onclick="toggleClass('hide','p')">click me</button>
+
+    <script>
+        function toggleClass(class_name, id){
+            document.getElementById(id).classList.toggle(class_name)
+        }
+    </script>
+</body>
+</html>

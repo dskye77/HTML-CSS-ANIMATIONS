@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pop up box</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(228, 255, 108, 1);
+      }
+      .button button {
+        padding: 15px 35px;
+        font-size: 1.5rem;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: red;
+        color: white;
+        border: 2px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+      .button button:hover {
+        filter: brightness(80%);
+      }
+      .pop-up-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        border-radius: 8px;
+        border: 2px solid white;
+        width: 450px;
+        max-width: 90%;
+        background-color: white;
+        margin-bottom: 50px;
+        z-index: 100;
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+      }
+      .pop-up-box.show {
+        pointer-events: all;
+        opacity: 100%;
+      }
+      .pop-up-box .alert-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: red;
+        font-size: 2.5rem;
+        padding: 40px;
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+        border-radius: 50%;
+      }
+      .pop-up-box h1 {
+        margin-top: 10px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2.5rem;
+      }
+      .pop-up-box h2 {
+        margin: 10px 0px;
+        text-align: center;
+        font-size: 1.2rem;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      .pop-up-box .pop-up-options {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 15px;
+      }
+      .pop-up-box .pop-up-options button {
+        background-color: red;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        width: 140px;
+        color: white;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        transition: all 0.3s ease;
+      }
+      .pop-up-box .pop-up-options button:hover {
+        filter: brightness(0.8);
+      }
+      
+      @media only screen and (max-width: 425px){
+        .pop-up-box .pop-up-options button{
+            width: 120px;
+            font-size: 1rem;
+            padding: 7px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button">
+      <button onclick="addClass('show', 'pop-up-box')">Click Me</button>
+    </div>
+    <div class="pop-up-box" id="pop-up-box">
+      <div class="alert-icon">!</div>
+      <h1>Confirm</h1>
+      <h2>Are you sure you want to permanently delete this item</h2>
+      <div class="pop-up-options">
+        <button onclick="removeClass('show','pop-up-box')">Yes, Delete</button>
+        <button onclick="removeClass('show','pop-up-box')">Cancel</button>
+      </div>
+    </div>
+    <script src="general.js"></script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.4s linear;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: rgb(25, 25, 34);
+}
+header {
+  width: 100%;
+  padding: 30px;
+  background-color: rgb(25, 25, 34);
+  border-bottom: 2px solid black;
+}
+header .title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0px 20px;
+}
+header .title h1 {
+  color: white;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+main .projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  padding: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+main .projects .project_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 30px;
+}
+main .projects .project_item .project_display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  width: 100%;
+  border-radius: 30px 30px 0px 0px;
+}
+main .projects .project_item img{
+  width: 60%;
+}
+main .projects .project_item img.reg-form{
+  width: 40%;
+}
+main .projects .project_item .project_description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 0px 20px;
+  width: 100%;
+  background-color: #042e53;
+  border-radius: 0px 0px 30px 30px;
+}
+main .projects .project_item .project_description p {
+  font-size: 1rem;
+  color: white;
+  width: 60%;
+}
+main .projects .project_item .project_description button {
+  width: 100px;
+  padding: 5px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+main .projects .project_item .project_description button a {
+  text-decoration: none;
+  color: white;
+}
+main .projects .project_item .project_description button:hover {
+  background-color: rgba(36, 33, 33, 0.5);
+}
+
+@media only screen and (max-width: 1024px) {
+  main .projects{
+      grid-template-columns: 1fr 1fr;
+      max-width: 800px;
+
+  }
+}

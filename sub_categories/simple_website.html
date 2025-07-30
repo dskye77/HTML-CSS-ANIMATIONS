@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Website</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+      }
+      .overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0);
+      }
+      header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        background-image: url(/images/image-blue-stars.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .head-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 40px;
+        box-shadow: 0px 1px 100px 0px;
+        background-color: rgb(9, 0, 29);
+      }
+      .head-nav h1 {
+        color: white;
+      }
+      .head-nav h1.mobile-h1 {
+        display: none;
+      }
+      .head-nav ul.navigation {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        list-style-type: none;
+      }
+      .head-nav ul.navigation li.cancel {
+        display: none;
+      }
+      .head-nav ul.navigation li {
+        position: relative;
+        font-size: 1.2rem;
+        color: white;
+        width: 100px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+      }
+      .head-nav ul.navigation li::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 40px;
+        padding: 4px;
+        border-radius: 5px;
+        transition: all 0.1s linear;
+        border: 0px solid white;
+      }
+      .head-nav ul.navigation li:hover::before {
+        border: 2px solid white;
+      }
+      .head-nav ul.navigation li.clicked {
+        color: rgb(9, 0, 29);
+        background-color: white;
+      }
+      .head-nav .harmburger {
+        display: none;
+      }
+      @media only screen and (max-width: 950px) {
+        .head-nav {
+          padding: 20px;
+        }
+        .head-nav ul.navigation li {
+          width: 80px;
+          font-size: 1.05rem;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        .head-nav ul.navigation {
+          display: none;
+        }
+        .overlay.show {
+          background: rgba(0, 0, 0, 0.6);
+        }
+        .head-nav ul.navigation.show {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+          z-index: 101;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 250px;
+          height: 100vh;
+          padding: 30px 0px;
+          background-color: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(15px);
+          filter: brightness(2.5);
+          box-shadow: -2px 20px 100px 5px;
+        }
+        .head-nav ul.navigation li {
+          width: 100%;
+          border-radius: 0px;
+          height: 50px;
+          justify-content: left;
+          padding-left: 35px;
+          border: 1px solid rgba(255, 255, 255, 0);
+        }
+        .head-nav ul.navigation li:hover {
+          border: 1px solid white;
+        }
+        .head-nav ul.navigation li.cancel {
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          padding: 0px 30px;
+          margin-bottom: 20px;
+        }
+        .head-nav ul.navigation li.cancel img {
+          width: 30px;
+          height: 30px;
+        }
+        .head-nav ul.navigation li:hover::before {
+          display: none;
+        }
+        .head-nav .harmburger {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+      }
+      @media only screen and (max-width: 425px) {
+        .head-nav h1.desktop-h1 {
+          display: none;
+        }
+        .head-nav h1.mobile-h1 {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div class="overlay" id="overlay"></div>
+    <header>
+      <div class="head-nav">
+        <h1 class="desktop-h1">Gaxlaxanion Studios</h1>
+        <h1 class="mobile-h1">GXU Studios</h1>
+        <ul class="navigation" id="nav-menu">
+          <li
+            class="cancel"
+            onclick="removeClass('show','nav-menu'); removeClass('show','overlay')"
+          >
+            <img src="/images/cancel.svg" alt="" />
+          </li>
+          <li
+            onclick="toggleClass('clicked','nav1'); removeClassFromMultipleIds('clicked','nav2','nav3','nav4')"
+            id="nav1"
+          >
+            Home
+          </li>
+          <li
+            onclick="toggleClass('clicked','nav2'); removeClassFromMultipleIds('clicked','nav1','nav3','nav4')"
+            id="nav2"
+          >
+            About
+          </li>
+          <li
+            onclick="toggleClass('clicked','nav3'); removeClassFromMultipleIds('clicked','nav2','nav1','nav4')"
+            id="nav3"
+          >
+            Services
+          </li>
+          <li
+            onclick="toggleClass('clicked','nav4'); removeClassFromMultipleIds('clicked','nav2','nav3','nav1')"
+            id="nav4"
+          >
+            Contact us
+          </li>
+        </ul>
+        <div
+          class="harmburger"
+          onclick="addClass('show','nav-menu'); addClass('show','overlay')"
+        >
+          <img src="/images/hamburger.svg" alt="" />
+        </div>
+      </div>
+    </header>
+
+    <script src="general.js"></script>
+  </body>
+</html>

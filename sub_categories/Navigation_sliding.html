@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation Sliding Animation</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container nav {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        position: relative;
+        background-color: rgb(221, 221, 221);
+        border-radius: 10px;
+        gap: 8px;
+      }
+      .container nav li {
+        width: 150px;
+        height: 60px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(221, 221, 221, 0);
+        border-radius: 10px;
+        color: red;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      .container nav li:hover{
+        background-color: rgba(0, 0, 0, 0.199);
+      }
+      .container nav li.clicked {
+        background-color: transparent;
+        color: white;
+      }
+      .container nav li.highlight {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: red;
+        z-index: 9;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        /* transition-timing-function: cubic-bezier(0, 0, 0, 0); */
+      }
+      .container nav #l1.clicked ~ .highlight {
+        left: 0%;
+      }
+      .container nav #l2.clicked ~ .highlight {
+        left: calc(20% + 5px);
+      }
+      .container nav #l3.clicked ~ .highlight {
+        left: calc(40% + 5px);
+      }
+      .container nav #l4.clicked ~ .highlight {
+        left: calc(60% + 5px);
+      }
+      .container nav #l5.clicked ~ .highlight {
+        left: calc(80% + 5px);
+      }
+
+      @media only screen and (max-width: 800px) {
+        .container nav li {
+          width: 100px;
+          height: 45px;
+        }
+      }
+      @media only screen and (max-width: 500px) {
+        .container nav li {
+          width: 75px;
+          height: 30px;
+          font-size: 0.9rem;
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        .container{
+            width: 100%;
+        }
+        .container nav {
+          flex-direction: column;
+          width: 90%;
+          gap: 4px;
+        }
+        .container nav li{
+            width: 100%;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+        .container nav #l1.clicked ~ .highlight {
+          left: 0%;
+          top: 0%;
+        }
+        .container nav #l2.clicked ~ .highlight {
+          left: 0%;
+          top: calc(20% + 4px);
+        }
+        .container nav #l3.clicked ~ .highlight {
+          left: 0%;
+          top: calc(40% + 4px);
+        }
+        .container nav #l4.clicked ~ .highlight {
+          left: 0%;
+          top: calc(60% + 4px);
+        }
+        .container nav #l5.clicked ~ .highlight {
+          left: 0%;
+          top: calc(80% + 4px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav>
+        <li
+          class="clicked"
+          onclick="addClass('clicked', 'l1'); removeClassFromMultipleIds('clicked', 'l2','l3', 'l4', 'l5' )"
+          id="l1"
+        >
+          Home
+        </li>
+        <li
+          onclick="addClass('clicked', 'l2'); removeClassFromMultipleIds('clicked', 'l1','l3', 'l4', 'l5' )"
+          id="l2"
+        >
+          About
+        </li>
+        <li
+          onclick="addClass('clicked', 'l3'); removeClassFromMultipleIds('clicked', 'l2','l1', 'l4', 'l5' )"
+          id="l3"
+        >
+          Events
+        </li>
+        <li
+          onclick="addClass('clicked', 'l4'); removeClassFromMultipleIds('clicked', 'l2','l3', 'l1', 'l5' )"
+          id="l4"
+        >
+          More
+        </li>
+        <li
+          onclick="addClass('clicked', 'l5'); removeClassFromMultipleIds('clicked', 'l2','l3', 'l4', 'l1' )"
+          id="l5"
+        >
+          Contact
+        </li>
+        <li class="highlight"></li>
+      </nav>
+    </div>
+    <script src="general.js"></script>
+  </body>
+</html>
