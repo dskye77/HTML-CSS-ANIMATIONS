@@ -20,9 +20,11 @@
         background-size: cover;
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        perspective: 1000px;
+        overflow: hidden;
+
       }
       #gen_cont {
-        perspective: 1000px;
         width: 100%;
         display: flex;
         align-items: center;
@@ -125,7 +127,7 @@
       .forgot:hover {
         text-decoration: underline;
       }
-      button.login {
+      div.login {
         width: 100%;
         padding: 10px;
         font-size: 1.2rem;
@@ -137,8 +139,9 @@
         background-color: white;
         transition: all 0.4s ease-in-out;
         cursor: pointer;
+        text-align: center;
       }
-      button.login:hover {
+      div.login:hover {
         background: transparent;
         color: #ffffff;
         border: 2px solid white;
@@ -190,13 +193,13 @@
               <p>forgot password</p>
             </div>
           </div>
-          <button
+          <div
             class="login"
             onclick="
         check_toggleClass('flip', 'gen_cont')"
           >
             Log in
-          </button>
+        </div>
           <div class="register">
             <p>Don't have an account? <a href="#">Register</a></p>
           </div>
