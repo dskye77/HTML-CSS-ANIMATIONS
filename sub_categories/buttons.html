@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Radio Buttons</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: blue;
+      }
+      .container {
+        width: 250px;
+        height: 200px;
+        background-color: rgb(235, 235, 235);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      h2 {
+        color: blue;
+        font-size: 1.1rem;
+        text-align: left;
+      }
+      p {
+        width: 75%;
+      }
+      .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+      input {
+        display: none;
+      }
+      .check-toggle {
+        width: 45px;
+        height: 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 40px;
+        position: relative;
+      }
+      .check-toggle::after {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 20px;
+        height: 20px;
+        background-color: blue;
+        border-radius: 40px;
+        transition: all 0.2s ease-in;
+      }
+      input:checked + .check-toggle::after {
+        left: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>System settings</h2>
+      <div class="item">
+        <p>Bluetooth</p>
+        <input type="checkbox" id="c1" name="c1" />
+        <label for="c1" class="check-toggle"></label>
+      </div>
+      <div class="item">
+        <p>Wi-Fi</p>
+        <input type="checkbox" id="c2" name="c2" />
+        <label for="c2" class="check-toggle"></label>
+      </div>
+      <div class="item">
+        <p>Hotspot</p>
+        <input type="checkbox" id="c3" name="c3"/>
+        <label for="c3" class="check-toggle"></label>
+      </div>
+    </div>
+  </body>
+</html>
